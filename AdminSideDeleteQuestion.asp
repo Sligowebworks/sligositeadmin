@@ -64,8 +64,10 @@ IF Not IsEmpty(Request.QueryString("id")) THEN
 			<TD align = center>
 			<br>Really delete <%=rs("title")%>?<br><br>
 			
-			<form method=POST action="AdminDelete.asp?id=<%=id%>" name="FormPageSelect">
-			<INPUT NAME=ConfirmDelete value="Confirm Delete" type="Submit">
+			<form method="POST" action="AdminDelete.asp?id=<%=id%>" name="FormPageSelect">
+			<INPUT type="hidden" name="MenuName" value="<%= rs("menuname")%>">
+			<INPUT type="hidden" name="PageName" value="<%= rs("PageName")%>">
+			<INPUT NAME="ConfirmDelete" value="Confirm Delete" type="Submit">
 			</FORM>
 			</TD>
 		</TR>

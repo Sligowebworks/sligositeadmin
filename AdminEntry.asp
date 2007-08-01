@@ -15,16 +15,12 @@ A:Visited{color:NAVY;font-size:8pt;font-family:Verdana, Arial, Helvetica, sans-s
 -->
 </STYLE>
 <%
-Set Conn = Server.CreateObject("ADODB.Connection")
+	Set Conn = Server.CreateObject("ADODB.Connection")
 	' get conn string from session
-	' comment out on next line on production server
-	 session("connstring") = "Provider=SQLOLEDB.1;Password=bytes4us;Persist Security Info=True;User ID=sa;Initial Catalog=SligoSite_CDHPNew;Data Source=Inferno2" 
-	' Conn.connectionstring = "Provider=SQLOLEDB.1;Password=zenmind;Persist Security Info=True;User ID=sa;Initial Catalog=SligoSite_LearnerSupport;Data Source=PARADISO"
 	Conn.connectionstring = Session("connstring")
 	Conn.Open 	
-	
-%>
-<%  IF Not IsEmpty(Request.QueryString("mid")) THEN 
+'~~~
+	IF Not IsEmpty(Request.QueryString("mid")) THEN 
 		menuid = request.querystring("mid")	
 	else
 		menuid = 0
@@ -36,31 +32,28 @@ Set Conn = Server.CreateObject("ADODB.Connection")
 		sorter = "N"
 	end if
 	
-	'Set Conn = Server.CreateObject("ADODB.Connection")
- 	' Conn.Open "learnersupport"
-	
 	sqlmenu = "select * from Menuitems;"
+	
 	set rsmenu = Server.CreateObject("ADODB.Recordset")
 	rsmenu.Open sqlmenu, Conn, adOpenKeyset, adLockOptimistic
-	'set rsmenu = conn.execute(SQLmenu)
 	
+'~~~
 	IF sorter = "N" then
 		SQLset = "select * from Main where Menuid = " & menuid & " order by CatSort, sort;"
 	ELSE
 		SQLset = "select * from Main where Menuid = " & menuid & " order by ID;"
 	END IF
+	
 	set rs = Server.CreateObject("ADODB.Recordset")
 	rs.Open sqlset, Conn, adOpenKeyset, adLockOptimistic
 	
-	
-	'set rs = conn.execute(SQLset)
+'~~~
 	SQLsec = "select * from Menuitems where Menuid = " & menuid & " ;"
 	set rsm = Server.CreateObject("ADODB.Recordset")
 	rsm.Open sqlsec, Conn, adOpenKeyset, adLockOptimistic
 	
-	'set rsm = conn.execute(SQLsec)
 
-	%>
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
 
 <html>

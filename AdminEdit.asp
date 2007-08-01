@@ -1,4 +1,10 @@
 <%
+'	For each item in Session.Contents
+'		Response.write(item)
+'		Response.write("[" & Session(item) & "]")
+'	Next
+'	Response.write "end debug ***"
+
 	IF Not IsEmpty(Request.QueryString("mid")) THEN 
 		menuid = request.querystring("mid")	
 	else
@@ -14,20 +20,20 @@
 	else
 		Addit = "N"
 	end if
-	
 	IF Addit = "D" THEN
  		Response.Redirect ("AdminProcess.asp?mid=" & menuid & "&id=" & id & "&add=" & Addit & "")
 	END IF
+
 	Set Conn = Server.CreateObject("ADODB.Connection")
 	Conn.connectionstring = Session("connstring")
 	Conn.Open 	
+
 	SQLCount = "select * from Main where id = " & id & " ;"
 	' response.write(SQlCount)
+
 	set rs = Server.CreateObject("ADODB.Recordset")
 	set rs = conn.execute(SQLCount)
 	
-	' Conn.connectionstring = "Provider=SQLOLEDB.1;Password=zenmind;Persist Security Info=True;User ID=sa;Initial Catalog=SligoSite_LearnerSupport;Data Source=PARADISO"
-	' Conn.Open "learnersupport"
 	SQLMenu = "select * from MenuItems where menuid = " & menuid & " ;"
 	set rsMenu = conn.execute(SQLMenu)
 	
@@ -88,7 +94,7 @@ A:Visited{color:NAVY;font-size:8pt;font-family:Verdana, Arial, Helvetica, sans-s
 </head>
 
 <body TEXT="BLUE">
-<FORM action="AdminProcessTroubleShoot2.asp" method="post" name="changeform">	
+<FORM action="AdminProcess.asp" method="post" name="changeform">	
 <table WIDTH="720" BORDER="0" align="center">
 	<tr>
 		<td BGCOLOR="white" ALIGN="middle"><img src="<%=logosource%>" BORDER="0"></td>
@@ -155,7 +161,7 @@ A:Visited{color:NAVY;font-size:8pt;font-family:Verdana, Arial, Helvetica, sans-s
 	</TR>
 	<TR>
 		<TD WIDTH="334" HEIGHT="25" ><FONT SIZE="2"	FACE="Arial, Helvetica, sans-serif"> 
-			<INPUT NAME=tophead SIZE=45 VALUE="<%=tophead%>">tophead
+			<INPUT NAME=tophead SIZE=45 VALUE="<%=tophead%>">
 			</FONT></TD> 
 		<TD WIDTH="334" HEIGHT="25" COLSPAN=2><FONT SIZE="2"	FACE="Arial, Helvetica, sans-serif"> 
 			<INPUT NAME="bottomhead" SIZE="45" VALUE="<%=bottomhead%>">
@@ -184,8 +190,8 @@ A:Visited{color:NAVY;font-size:8pt;font-family:Verdana, Arial, Helvetica, sans-s
 			<INPUT NAME="category" SIZE="45" VALUE="<%=Category%>">
 		</FONT></TD> 
 		<TD COLSPAN = 2><FONT SIZE="2" FACE="Arial, Helvetica, sans-serif"> 
-			<INPUT NAME="title" type=text SIZE="45" VALUE="<%=title%>">sdsds
-        </FONT></TD> 
+			<INPUT NAME="title" SIZE="45" VALUE="<%=title%>">
+		</FONT></TD> 
 	</TR>
 	<TR> 
 		<TD VALIGN="top">
@@ -211,9 +217,11 @@ A:Visited{color:NAVY;font-size:8pt;font-family:Verdana, Arial, Helvetica, sans-s
 	</TR> 
 		<TR> 
 		<TD>
-			<FONT FACE=" Arial, Helvetica, sans-serif" SIZE="1" COLOR="BLUE"><B>REQUIRED PageName: (no spaces)</B></FONT>
+			<FONT FACE=" Arial, Helvetica, sans-serif" SIZE="1" COLOR="BLUE"><B>REQUIRED PageName:</B></FONT>
 			&nbsp;&nbsp;<FONT SIZE="2"	FACE="Arial, Helvetica, sans-serif"> 
+
 			<INPUT NAME="PageName" SIZE="70" VALUE="<%=PageName%>">
+
 		</FONT></TD> 
 		<TD COLSPAN = 2>
 			<FONT FACE=" Arial, Helvetica, sans-serif" SIZE="1" COLOR="BLUE"><B>MenuName:</B></FONT>
@@ -223,6 +231,7 @@ A:Visited{color:NAVY;font-size:8pt;font-family:Verdana, Arial, Helvetica, sans-s
 		</FONT></TD> 
 	</TR>
 
+			<!--Dan: These are just the copied over from the safeops page; there's no coding yet.-->
 			<input type=hidden value="<%=id%>" name="id">
 			<input type=hidden value="<%=menuid%>" name="mid">
 			<input type=hidden value=<%=Addit%> name="Addit">

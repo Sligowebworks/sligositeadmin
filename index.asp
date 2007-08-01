@@ -32,7 +32,7 @@ Set Conn = Server.CreateObject("ADODB.Connection")
 ' Sligo connection
 ' Conn.connectionstring  = "Provider=SQLOLEDB.1;Password=bytes4us;Persist Security Info=True;User ID=sa;Initial Catalog=CDHP;Data Source=Inferno2"
 ' Starfish connection
-Conn.connectionstring = "Provider=SQLOLEDB.1;Password=bytes4us;Persist Security Info=True;User ID=sa;Initial Catalog=SligoSite;Data Source=Inferno2"
+Conn.connectionstring = "Provider=SQLOLEDB.1;Password=bytes4us;Persist Security Info=True;User ID=sa;Initial Catalog=SligoSite;Data Source=STARFISH"
 Conn.Open 
 sql="SELECT SiteName FROM Admin;"
 Set rsOrgs = Server.CreateObject("ADODB.Recordset")
