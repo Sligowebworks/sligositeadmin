@@ -2,13 +2,9 @@
 /ADOVBS.INC -text
 /AdminDelete.asp -text
 /AdminEdit.asp -text
-/AdminEditTroubleShoot.asp -text
-/AdminEditTroubleShootReceive.asp -text
 /AdminEntry.asp -text
-/AdminEntryx.asp -text
 /AdminMenuMaintenance.asp -text
 /AdminProcess.asp -text
-/AdminProcessTroubleShoot.asp -text
 /AdminSideDeleteQuestion.asp -text
 /AdminSortChange.asp -text
 /AdminSortProcess.asp -text
@@ -20,9 +16,5 @@ Images/Spacer.gif -text
 Images/dot.gif -text
 Images/logo.gif -text
 Images/sligocollage.gif -text
-/db1.mdb -text
-/functionsv2.inc -text
 /index.asp -text
 /security.asp -text
-/style_main.css -text
-/verifypage.asp -text
