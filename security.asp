@@ -22,7 +22,7 @@ session("new") = rsOrgs("newdesign")
 
 Select case lcase(rtrim(session("sitename")))
 case "cdhp"
-	session("producution domain") = "http://cdhp.org"
+	session("production domain") = "http://cdhp.org"
 case "sligowebworks"
 	session("production domain") = "http://sligowebworks.com"
 case else
