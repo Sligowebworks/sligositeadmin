@@ -20,7 +20,7 @@ session("path") = rsOrgs("path")
 session("sitename") = rsOrgs("sitename")
 session("new") = rsOrgs("newdesign")
 
-Select case Ucase(Rtrim(session("sitename")))
+Select case lcase(rtrim(session("sitename")))
 case "cdhp"
 	session("producution domain") = "http://cdhp.org"
 case "sligowebworks"
