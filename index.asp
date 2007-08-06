@@ -27,7 +27,7 @@ IF request.querystring("PW") <> 1 then
         	<%END IF%>
 	
 
-<!-- #INCLUDE db.connection.asp -->
+<!-- #INCLUDE FILE="db.connection.asp" -->
 <%
 sql="SELECT SiteName FROM Admin;"
 Set rsOrgs = Server.CreateObject("ADODB.Recordset")
