@@ -125,9 +125,7 @@ RS("description") = description
 		newpathdir = RS("menuname")
 	End If
 	NewPath = objFSO.BuildPath(objFSO.BuildPath("d:\websites\sligosite\", Session("path") ), newpathdir)
-	Response.write ("HERE")
-
-
+	
 	IF (Addit = "Y") THEN 
 
 		PageName = CreateNewFileStub(PageName, NewPath, objFSO)
