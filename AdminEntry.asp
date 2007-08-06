@@ -66,6 +66,7 @@ A:Visited{color:NAVY;font-size:8pt;font-family:Verdana, Arial, Helvetica, sans-s
 <% 	logosource = "/SligoSite/" + trim(session("path")) + "/Images/Logo.gif"
 	dotsource =  "/SligoSite/" + trim(session("path")) + "/Images/dot.gif"
 	homesource = "/SligoSite/" + trim(session("path")) + "/Index.asp"
+	proddomain = Session("production domain")
 %>
 
 <table WIDTH="600" BORDER="0" align="center">
@@ -82,7 +83,7 @@ A:Visited{color:NAVY;font-size:8pt;font-family:Verdana, Arial, Helvetica, sans-s
 <TABLE ALIGN="CENTER">
 	<TR>
 		<TD><FONT FACE="Arial, Helvetica, sans-serif" SIZE="2" COLOR="BLUE">Administrator Main Menu
-			&nbsp;&nbsp;<FONT FACE="Arial, Helvetica, sans-serif" SIZE="2" COLOR="BLUE"><a HREF="<%=homesource%>">[Jump to home page]</a>
+			&nbsp;&nbsp;<FONT FACE="Arial, Helvetica, sans-serif" SIZE="2" COLOR="BLUE"><a HREF="<%=proddomain%>">[Jump to home page]</a>
 			<a HREF="AdminEntry.asp?mid=<%=menuid%>&idsort=Y">[sort on ID]</a>&nbsp;
 			<a HREF="AdminEntry.asp?mid=<%=menuid%>&idsort=N">[sort/subsort]</a>
 		</TD>

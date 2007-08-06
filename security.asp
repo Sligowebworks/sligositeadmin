@@ -20,6 +20,15 @@ session("path") = rsOrgs("path")
 session("sitename") = rsOrgs("sitename")
 session("new") = rsOrgs("newdesign")
 
+Select case session("sitename")
+case "CDHP"
+	session("producution domain") = "http://cdhp.org"
+case "Sligowebworks"
+	session("production domain") = "http://sligowebworks.com"
+case else
+	session("production domain") = "http://cdhp.org"
+End Select
+
 If TrIM(TestPassword) = "" then
 	rsOrgs.Close
     Session("ErrMessage") = "You must enter a password to access this site."
