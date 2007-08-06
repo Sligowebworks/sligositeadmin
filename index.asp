@@ -26,14 +26,9 @@ IF request.querystring("PW") <> 1 then
                 </FONT>
         	<%END IF%>
 	
-<%
 
-Set Conn = Server.CreateObject("ADODB.Connection")
-' Sligo connection
-' Conn.connectionstring  = "Provider=SQLOLEDB.1;Password=bytes4us;Persist Security Info=True;User ID=sa;Initial Catalog=CDHP;Data Source=Inferno2"
-' Starfish connection
-Conn.connectionstring = "Provider=SQLOLEDB.1;Password=bytes4us;Persist Security Info=True;User ID=sa;Initial Catalog=SligoSite;Data Source=STARFISH"
-Conn.Open 
+<!-- #INCLUDE db.connection.asp -->
+<%
 sql="SELECT SiteName FROM Admin;"
 Set rsOrgs = Server.CreateObject("ADODB.Recordset")
 rsOrgs.Open sql, Conn, adOpenKeyset, adLockOptimistic	
