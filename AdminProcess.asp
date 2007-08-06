@@ -18,7 +18,7 @@ function CreateNewFileStub(PageName, Path, FSO)
 		n = n + 1
 	loop
 
-	call objFSO.CopyFile("d:\websites\sligosite\" & Session("path") & "\" & "template.asp", filedef)
+	call objFSO.CopyFile("d:\websites\sligosite\Admin\template.asp", filedef)
 
 	CreateNewFileStub = NewPageName
 End Function
