@@ -3,8 +3,6 @@
 IF Not IsEmpty(Request.QueryString("id")) THEN 
 	id = request.querystring("id")	
 
-	'%>id:<%=id%><%
-
 	Set Conn = Server.CreateObject("ADODB.Connection")
 	' get conn string from session
 	Conn.connectionstring = Session("connstring")
